@@ -40,7 +40,8 @@ case class FlywayConfiguration(
     outOfOrder: Option[Boolean],
     scriptsDirectory: Option[String],
     mixed: Option[Boolean],
-    group: Option[Boolean]
+    group: Option[Boolean],
+    loadDefaultConfigurationFiles: Boolean
 )
 
 case class DatabaseConfiguration(driver: String, url: String, user: String, password: String)

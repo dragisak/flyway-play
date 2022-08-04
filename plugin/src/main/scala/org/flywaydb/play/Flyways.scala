@@ -45,6 +45,9 @@ class Flyways @Inject() (configuration: Configuration, environment: Environment)
       if migrationFileDirectoryExists(migrationFilesLocation)
     } yield {
       val flyway = Flyway.configure(environment.classLoader)
+      if (configuration.loadDefaultConfigurationFiles) {
+        flyway.loadDefaultConfigurationFiles()
+      }
       val database = configuration.database
       val dataSource =
         new DriverDataSource(getClass.getClassLoader, database.driver, database.url, database.user, database.password)

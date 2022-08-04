@@ -72,7 +72,8 @@ class ConfigReader(configuration: Configuration, environment: Environment) {
         subConfig.getOptional[Boolean]("outOfOrder"),
         subConfig.getOptional[String]("scriptsDirectory"),
         subConfig.getOptional[Boolean]("mixed"),
-        subConfig.getOptional[Boolean]("group")
+        subConfig.getOptional[Boolean]("group"),
+        subConfig.getOptional[Boolean]("loadDefaultConfigurationFiles").getOrElse(false)
       )
     }).toMap
   }

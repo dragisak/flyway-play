@@ -357,5 +357,18 @@ class ConfigReaderSpec extends AnyFunSpec with Matchers {
         }
       }
     }
+
+    describe("loadDefaultConfigurationFiles") {
+      it("should be parsed") {
+        withDefaultDB(Map("db.default.migration.loadDefaultConfigurationFiles" -> "true")) { config =>
+          config.loadDefaultConfigurationFiles should be(true)
+        }
+      }
+      it("should be false by default") {
+        withDefaultDB(Map.empty) { config =>
+          config.loadDefaultConfigurationFiles should be(false)
+        }
+      }
+    }
   }
 }
